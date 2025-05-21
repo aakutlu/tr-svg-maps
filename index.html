@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Türkiye il ilçe svg haritaları</title>
+    <style>
+      #container-ulke {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 1em;
+        margin-top: 1em;
+      }
+      #container-ulke img {
+        width: 600px;
+        height: 300px;
+        border: solid 1px black;
+      }
+      #container-ilceler {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      #container-ilceler img {
+        width: 200px;
+        height: 200px;
+        border: solid 1px black;
+      }
+      figure {
+        border: thin #c0c0c0 solid;
+        display: flex;
+        flex-flow: column;
+        padding: 5px;
+        margin: auto;
+      }
+      figcaption {
+        background-color: #222;
+        color: #fff;
+        font: italic smaller sans-serif;
+        padding: 3px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="tr-svg.zip" download>Hepsini indir(3.12Mb)</a>
+
+    <div id="container-ulke">
+      <figure>
+        <img src="svg/TR-adm1.svg" alt="TR-adm1.svg" title="TR-adm1.svg"/>
+        <a href="svg/TR-adm1.svg" download>TR-adm1.svg</a>
+        <a href="svg/TR-adm1-compressed.svg" download>TR-adm1-compressed.svg</a>
+      </figure>
+      <figure>
+        <img src="svg/TR-adm2.svg" alt="TR-adm2.svg" title="TR-adm2.svg"/>
+        <a href="svg/TR-adm2.svg" download>TR-adm2.svg</a>
+        <a href="svg/TR-adm2-compressed.svg" download>TR-adm2-compressed.svg</a>
+      </figure>
+      <figure>
+        <img src="svg/TR-adm2-with-city-borders.svg" alt="TR-adm2-with-city-borders.svg" title="TR-adm2-with-city-borders.svg"/>
+        <a href="svg/TR-adm2-with-city-borders.svg" download>TR-adm2-with-city-borders.svg</a>
+        <a href="svg/TR-adm2-with-city-borders-compressed.svg" download>TR-adm2-with-city-borders-compressed.svg</a>
+      </figure>
+    </div>
+
+    <div id="container-ilceler"></div>
+
+    <script type="module">
+      import isohelper from "./tr-iso3166.js";
+      console.log(isohelper.getProvinceNames());
+      let containerIlceler = document.getElementById("container-ilceler");
+
+      window.addEventListener("load", (event) => {
+        isohelper.getProvinceNames().forEach((cityname) => {
+          let figure = document.createElement("figure");
+          //let figurecap = document.createElement("figurecap")
+          //figurecap.textContent = cityname;
+          let anchor = document.createElement("a");
+          anchor.setAttribute("href", `svg/ilceler/${cityname}.svg`);
+          anchor.setAttribute("download", "");
+          anchor.textContent = cityname;
+          let img = document.createElement("img");
+          img.setAttribute("src", `svg/ilceler/${cityname}.svg`);
+          img.setAttribute("alt", cityname);
+          img.setAttribute("title", cityname);
+          figure.appendChild(img);
+          //figure.appendChild(figurecap)
+          figure.appendChild(anchor);
+          containerIlceler.appendChild(figure);
+        });
+      });
+    </script>
+  </body>
+</html>
