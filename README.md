@@ -7,3 +7,8 @@
 
 ### 300x300 boyutunda 81 ilçenin ayrı ayrı svg dosyası
 ![TR-01](https://aakutlu.github.io/tr-svg-maps/svg/ilceler/adana.svg)
+
+
+<img style="width:300px; height: 300px;" src="https://aakutlu.github.io/tr-svg-maps/svg/ilceler/adana.svg"/>
+<img style="width:300px; height: 300px;" src="https://aakutlu.github.io/tr-svg-maps/svg/ilceler/samsun.svg"/>
+<img style="width:300px; height: 300px;" src="https://aakutlu.github.io/tr-svg-maps/svg/ilceler/ankara.svg"/>
